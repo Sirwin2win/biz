@@ -1,0 +1,19 @@
+.team {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.pos {
+    margin-left: 40px;
+}
+
+.men {
+    margin-left: 30px;
+}
+
+.member {
+    color: red;
+    background-color: blue;
+    padding: 30px;
+}

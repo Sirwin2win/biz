@@ -10,8 +10,10 @@ import Day from "../components/Day";
 import Age from "../components/Age";
 import FormData from "../components/FormData";
 import Monday from "../components/Monday";
+import Hooking from "../components/Hooking";
 
 const Products = ({ fruits, arr }) => {
+  const [color, setColor] = useState("");
   var hr = new Date().getHours();
   var min = new Date().getMinutes();
   const dd = new Date().getDay();
@@ -25,6 +27,7 @@ const Products = ({ fruits, arr }) => {
 
   return (
     <div>
+      <Hooking />
       {/* condition ? true : false */}
       {dd ? <Day /> : <p>No Match</p>}
       {b < a ? <p>Sure</p> : <p>False</p>}

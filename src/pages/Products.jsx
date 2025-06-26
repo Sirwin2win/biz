@@ -11,6 +11,8 @@ import Age from "../components/Age";
 import FormData from "../components/FormData";
 import Monday from "../components/Monday";
 import Hooking from "../components/Hooking";
+import Counter from "../components/Counter";
+import Refer from "../components/Refer";
 
 const Products = ({ fruits, arr }) => {
   const [color, setColor] = useState("");
@@ -27,6 +29,8 @@ const Products = ({ fruits, arr }) => {
 
   return (
     <div>
+      <Counter />
+      <Refer />
       <Hooking />
       {/* condition ? true : false */}
       {dd ? <Day /> : <p>No Match</p>}

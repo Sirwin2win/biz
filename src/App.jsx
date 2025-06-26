@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Layout from "./pages/Layout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   const fruits = [
@@ -29,6 +30,7 @@ function App() {
             path="/product"
             element={<Products fruits={fruits} arr={arr} />}
           />
+          <Route path="product/:id" element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

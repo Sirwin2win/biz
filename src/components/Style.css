@@ -17,3 +17,14 @@
     background-color: blue;
     padding: 30px;
 }
+
+.parent {
+    position: relative;
+}
+
+.child1 {
+    position: absolute;
+    bottom: 200px;
+    left: 50px;
+    color: red;
+}

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FcRating } from "react-icons/fc";
+import "./Style.css";
 
 const Hooking = () => {
   const [color, setColor] = useState("");
@@ -30,17 +33,30 @@ const Hooking = () => {
 
   return (
     <div>
-      <div className="row">
+      <div className="row mt-5">
         {products.map((product) => (
-          <div className="col-sm-4">
+          <div className="col-sm-4 mb-3">
             <div className="card" style={{ width: "18rem" }}>
-              <img src={product.image} className="card-img-top" alt="..." />
+              <img
+                src={product.image}
+                className="card-img-top"
+                alt={product.title}
+              />
               <div className="card-body">
+                <h5 className="card-title">{product.category}</h5>
                 <h5 className="card-title">{product.title}</h5>
-                <p className="card-text">{product.description}</p>
-                <a href="#" className="btn btn-primary">
+                {/* <p className="card-text">{product.description}</p> */}
+                <div className="row">
+                  <p className="col">
+                    Rating
+                    <FcRating />:{product.rating.rate}{" "}
+                  </p>
+                  <p className="col">${product.price}</p>
+                </div>
+
+                <Link to={`${product.id}`} className="btn btn-primary">
                   Go somewhere
-                </a>
+                </Link>
               </div>
             </div>
           </div>

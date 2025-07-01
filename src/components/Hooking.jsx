@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FcRating } from "react-icons/fc";
+import { FaEye } from "react-icons/fa";
 import "./Style.css";
 
 const Hooking = () => {
@@ -13,6 +14,7 @@ const Hooking = () => {
     age: 27,
   });
   const [min, setMin] = useState(0);
+  // const [products, setProducts] = useState({ data: [] });
   const [products, setProducts] = useState([]);
   const fruits = ["Apple", "Cherry", "Orange"];
   //   const greet = function () {
@@ -25,18 +27,22 @@ const Hooking = () => {
   });
 
   useEffect(() => {
+    // fetch("https://fakerapi.it/api/v2/products")
+    // fetch("https://api.escuelajs.co/api/v1/products")
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => setProducts(json));
     // setProducts(json);
-  }, [products]);
+  }, []);
 
   return (
     <div>
       <div className="row mt-5">
         {products.map((product) => (
-          <div className="col-sm-4 mb-3">
+          // {products.data.map((product) => (
+          <div className="col-sm-4 mb-3" key={product.id}>
             <div className="card" style={{ width: "18rem" }}>
+              {console.log(product)}
               <img
                 src={product.image}
                 className="card-img-top"
@@ -49,7 +55,11 @@ const Hooking = () => {
                 <div className="row">
                   <p className="col">
                     Rating
-                    <FcRating />:{product.rating.rate}{" "}
+                    {/* <FcRating />:{product.rating.rate}{" "} */}
+                  </p>
+                  <p className="col">
+                    Count
+                    {/* <FaEye />:{product.rating.count}{" "} */}
                   </p>
                   <p className="col">${product.price}</p>
                 </div>

@@ -5,13 +5,14 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(0);
   useEffect(() => {
+    // fetch(`https://fakeapi.net/products/${id}`)
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((json) => setProduct(json));
   }, [product]);
 
   return (
-    <div>
+    <div key={product.id}>
       <div className="row">
         <div className="col">
           <img src={product.image} alt="" />

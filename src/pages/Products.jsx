@@ -58,9 +58,9 @@ const Products = ({ fruits, arr }) => {
           <p>{v.email}</p>
         </div>
       ))}
-      {arr.map((v) => (
+      {/* {arr.map((v) => (
         <p>{v}</p>
-      ))}
+      ))} */}
       <Monday />
       {/* New Arrivals Started */}
       {/* primary,danger,warning,info,secondary,light,dafault */}

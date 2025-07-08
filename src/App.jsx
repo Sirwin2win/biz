@@ -9,6 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import ProductDetail from "./components/ProductDetail";
 import ProductInfo from "./components/ProductInfo";
+import { ThemeProvider } from "./components/ThemeContext";
+// import { ThemeProvider } from "./components/ThemeContext";
 
 function App() {
   const fruits = [
@@ -22,19 +24,21 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route
-            path="/product"
-            element={<Products fruits={fruits} arr={arr} />}
-          />
-          <Route path="product/:id" element={<ProductDetail />} />
-          <Route path="contact/:id" element={<ProductInfo />} />
-        </Route>
-      </Routes>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/product"
+              element={<Products fruits={fruits} arr={arr} />}
+            />
+            <Route path="product/:id" element={<ProductDetail />} />
+            <Route path="contact/:id" element={<ProductInfo />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

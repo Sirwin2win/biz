@@ -81,6 +81,7 @@ const Layout = () => {
                 Search
               </button>
             </form>
+            {/* Theme Icon */}
             <BiAdjust onClick={toggleTheme} style={{ fontSize: "100px" }} />
           </div>
         </div>

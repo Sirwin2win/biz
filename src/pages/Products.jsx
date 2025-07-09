@@ -13,9 +13,12 @@ import Monday from "../components/Monday";
 import Hooking from "../components/Hooking";
 import Counter from "../components/Counter";
 import Refer from "../components/Refer";
+import { useTheme } from "../components/ThemeContext";
+// import { BiAdjust } from "react-icons/bi";
 
 const Products = ({ fruits, arr }) => {
   const [color, setColor] = useState("");
+
   var hr = new Date().getHours();
   var min = new Date().getMinutes();
   const dd = new Date().getDay();

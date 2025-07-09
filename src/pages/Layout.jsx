@@ -3,10 +3,16 @@ import { Outlet, Link } from "react-router-dom";
 import logo from "../images/cute-kid-with-abacus-studio.jpg";
 import "../styles/style.css";
 import Footer from "../components/Footer";
+import { useTheme } from "../components/ThemeContext";
+import { BiAdjust } from "react-icons/bi";
 
 const Layout = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
-    <div id="container">
+    <div
+      id="container"
+      style={{ backgroundColor: theme === "white" ? "black" : "white" }}
+    >
       <nav className="navbar navbar-expand-lg bg-primary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
@@ -75,6 +81,8 @@ const Layout = () => {
                 Search
               </button>
             </form>
+            {/* Theme Icon */}
+            <BiAdjust onClick={toggleTheme} style={{ fontSize: "100px" }} />
           </div>
         </div>
       </nav>

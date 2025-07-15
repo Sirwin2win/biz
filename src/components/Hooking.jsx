@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FcRating } from "react-icons/fc";
 import { FaEye } from "react-icons/fa";
 import "./Style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getProduct } from "../features/productReducer";
 
 const Hooking = () => {
   const [color, setColor] = useState("");
@@ -15,8 +17,10 @@ const Hooking = () => {
   });
   const [min, setMin] = useState(0);
   // const [products, setProducts] = useState({ data: [] });
-  const [products, setProducts] = useState([]);
+
   const fruits = ["Apple", "Cherry", "Orange"];
+  const { data: products, status } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
   //   const greet = function () {
   //     alert("Hello everyone");
   //   };
@@ -29,10 +33,11 @@ const Hooking = () => {
   useEffect(() => {
     // fetch("https://fakerapi.it/api/v2/products")
     // fetch("https://api.escuelajs.co/api/v1/products")
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setProducts(json));
+    // ("https://fakestoreapi.com/products")
+    //   .then((res) => res.json())
+    //   .then((json) => setProducts(json));
     // setProducts(json);
+    dispatch(getProduct());
   }, []);
 
   return (
@@ -55,11 +60,11 @@ const Hooking = () => {
                 <div className="row">
                   <p className="col">
                     Rating
-                    {/* <FcRating />:{product.rating.rate}{" "} */}
+                    <FcRating />:{product.rating.rate}{" "}
                   </p>
                   <p className="col">
                     Count
-                    {/* <FaEye />:{product.rating.count}{" "} */}
+                    <FaEye />:{product.rating.count}{" "}
                   </p>
                   <p className="col">${product.price}</p>
                 </div>

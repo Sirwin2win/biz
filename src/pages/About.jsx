@@ -3,6 +3,7 @@ import Team from "../components/Team";
 import { useTheme } from "../components/ThemeContext";
 // import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { BiAdjust } from "react-icons/bi";
+import Items from "../components/Items";
 
 const About = () => {
   const { theme, toggleTheme } = useTheme();
@@ -13,6 +14,8 @@ const About = () => {
     >
       <BiAdjust onClick={toggleTheme} style={{ fontSize: "100px" }} />
       <Team />
+
+      <Items />
     </div>
   );
 };
